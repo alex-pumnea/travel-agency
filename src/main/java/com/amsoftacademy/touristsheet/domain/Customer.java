@@ -16,12 +16,12 @@ import javax.validation.constraints.Size;
  * @author Alex Pumnea
  */
 
-@Entity
-@Table(name = "customers")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

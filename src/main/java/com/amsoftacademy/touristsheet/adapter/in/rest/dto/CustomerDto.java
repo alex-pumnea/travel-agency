@@ -12,11 +12,11 @@ import java.io.Serializable;
  */
 @Value
 public class CustomerDto implements Serializable {
-    @Size(message = "First name must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "First name must be less than or equal to 100 characters")
     @NotBlank(message = "First name is required")
     String firstName;
 
-    @Size(message = "Last name must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Last name must be less than or equal to 100 characters")
     @NotBlank(message = "Last name is required")
     String lastName;
 
@@ -24,11 +24,11 @@ public class CustomerDto implements Serializable {
     @NotBlank(message = "Email is required")
     String email;
 
-    @Size(message = "Phone must be less than or equal to 20 characters", max = 20)
+    @Size(max = 20, message = "Phone must be less than or equal to 20 characters")
     @NotBlank(message = "Phone is required")
     String phone;
 
-    @Size(message = "Nationality must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Nationality must be less than or equal to 100 characters")
     @NotBlank(message = "Nationality is required")
     String nationality;
 }
