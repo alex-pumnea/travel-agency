@@ -1,0 +1,107 @@
+### Find All Tourist Sheets
+GET http://localhost:8080/api/v1/tourist-sheets
+
+### Get Tourist Sheet by ID
+GET http://localhost:8080/api/v1/tourist-sheets/1
+
+### Create new Tourist Sheet
+POST http://localhost:8080/api/v1/tourist-sheets
+Content-Type: application/json
+
+{
+  "customer": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@example.com",
+    "phone": "123456789",
+    "nationality": "USA"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "postalCode": "12345",
+    "country": "United States",
+    "countryCode": "US"
+  },
+  "travelInfo": {
+    "travelStartDate": "2023-07-01",
+    "travelEndDate": "2023-07-10",
+    "flightDetails": "ABC123",
+    "itinerary": ["Place 1", "Place 2", "Place 3"]
+  },
+  "emergencyContact": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "relationship": "SPOUSE",
+    "phone": "987654321"
+  }
+}
+
+### Update existing Tourist Sheets
+PUT http://localhost:8080/api/v1/tourist-sheets/1
+Content-Type: application/json
+
+{
+  "customer": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@example.com",
+    "phone": "123456789",
+    "nationality": "USA"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "postalCode": "12345",
+    "country": "United States",
+    "countryCode": "US"
+  },
+  "travelInfo": {
+    "travelStartDate": "2023-07-01",
+    "travelEndDate": "2023-07-10",
+    "flightDetails": "ABC123",
+    "itinerary": ["Place 1", "Place 2", "Place 3"]
+  },
+  "emergencyContact": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "relationship": "SPOUSE",
+    "phone": "987654321"
+  }
+}
+
+### Update existing Tourist Sheet with invalid id
+PUT http://localhost:8080/api/v1/tourist-sheets/100
+Content-Type: application/json
+
+{
+  "customer": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@example.com",
+    "phone": "123456789",
+    "nationality": "USA"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "postalCode": "12345",
+    "country": "United States",
+    "countryCode": "US"
+  },
+  "travelInfo": {
+    "travelStartDate": "2023-07-01",
+    "travelEndDate": "2023-07-10",
+    "flightDetails": "ABC123",
+    "itinerary": ["Place 1", "Place 2", "Place 3"]
+  },
+  "emergencyContact": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "relationship": "SPOUSE",
+    "phone": "987654321"
+  }
+}
+
+### Delete Tourist Sheet by id
+DELETE http://localhost:8080/api/v1/tourist-sheets/3
