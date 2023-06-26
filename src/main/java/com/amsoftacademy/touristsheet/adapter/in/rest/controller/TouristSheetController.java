@@ -27,7 +27,7 @@ public class TouristSheetController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Optional<TouristSheet>> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));
     }
