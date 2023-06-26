@@ -1,6 +1,8 @@
 package com.amsoftacademy.touristsheet.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,6 +16,8 @@ import javax.validation.constraints.Size;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "addresses")
 public class Address {
@@ -23,27 +27,27 @@ public class Address {
     private Long id;
 
     @NotBlank(message = "Street is required")
-    @Size(message = "Street must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Street must be less than or equal to 100 characters")
     @Column(name = "street", nullable = false)
     private String street;
 
     @NotBlank(message = "City is required")
-    @Size(message = "City must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "City must be less than or equal to 100 characters")
     @Column(name = "city")
     private String city;
 
     @NotBlank(message = "Postal code is required")
-    @Size(message = "Postal code must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Postal code must be less than or equal to 100 characters")
     @Column(name = "postal_code")
     private String postalCode;
 
     @NotBlank(message = "Country is required")
-    @Size(message = "Country must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Country must be less than or equal to 100 characters")
     @Column(name = "country")
     private String country;
 
     @NotBlank(message = "Country code is required")
-    @Size(message = "Country code must be less than or equal to 2 characters", max = 2)
+    @Size(max = 2, message = "Country code must be less than or equal to 2 characters")
     @Column(name = "country_code")
     private String countryCode;
 

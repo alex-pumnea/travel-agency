@@ -15,12 +15,12 @@ import java.time.LocalDateTime;
  *
  * @author Alex Pumnea
  */
-@Entity
-@Table(name = "tourist_sheets")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "tourist_sheets")
 public class TouristSheet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

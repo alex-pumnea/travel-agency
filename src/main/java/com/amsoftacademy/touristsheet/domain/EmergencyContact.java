@@ -1,6 +1,8 @@
 package com.amsoftacademy.touristsheet.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,6 +16,8 @@ import javax.validation.constraints.Size;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "emergency_contacts")
 public class EmergencyContact {

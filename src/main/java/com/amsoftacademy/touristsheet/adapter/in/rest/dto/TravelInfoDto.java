@@ -21,11 +21,11 @@ public class TravelInfoDto implements Serializable {
     @FutureOrPresent(message = "Travel end date must be in the future or present")
     LocalDate travelEndDate;
 
-    @Size(message = "Flight details must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Flight details must be less than or equal to 100 characters")
     @NotBlank(message = "Flight details is required")
     String flightDetails;
 
-    @Size(message = "Itinerary must contain between 1 and 15 items", min = 1, max = 15)
+    @Size(min = 1, max = 15, message = "Itinerary must contain between 1 and 15 items")
     @NotEmpty(message = "Itinerary must not be empty")
     List<String> itinerary;
 }
