@@ -14,10 +14,13 @@ import java.io.Serializable;
 public class TouristSheetRequest implements Serializable {
     @NotNull
     CustomerDto customer;
+
     @NotNull
     AddressDto address;
+
     @NotNull
     TravelInfoDto travelInfo;
+
     @NotNull
     EmergencyContactDto emergencyContact;
 }
