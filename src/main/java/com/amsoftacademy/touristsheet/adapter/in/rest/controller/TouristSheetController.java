@@ -3,6 +3,7 @@ package com.amsoftacademy.touristsheet.adapter.in.rest.controller;
 import com.amsoftacademy.touristsheet.adapter.in.rest.dto.TouristSheetRequest;
 import com.amsoftacademy.touristsheet.application.TouristSheetService;
 import com.amsoftacademy.touristsheet.domain.TouristSheet;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,10 @@ import java.util.Optional;
  * @author Alex Pumnea
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/tourist-sheets")
 public class TouristSheetController {
     private final TouristSheetService<TouristSheetRequest, TouristSheet> service;
-
-    public TouristSheetController(TouristSheetService<TouristSheetRequest, TouristSheet> service) {
-        this.service = service;
-    }
 
     @GetMapping
     ResponseEntity<Iterable<TouristSheet>> getAll() {

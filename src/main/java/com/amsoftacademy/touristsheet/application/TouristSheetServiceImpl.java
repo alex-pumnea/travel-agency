@@ -4,6 +4,7 @@ import com.amsoftacademy.touristsheet.adapter.in.rest.dto.TouristSheetRequest;
 import com.amsoftacademy.touristsheet.adapter.in.rest.mapper.TouristSheetMapper;
 import com.amsoftacademy.touristsheet.adapter.out.TouristSheetRepository;
 import com.amsoftacademy.touristsheet.domain.TouristSheet;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,14 +18,10 @@ import java.util.stream.StreamSupport;
  */
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class TouristSheetServiceImpl implements TouristSheetService<TouristSheetRequest, TouristSheet> {
     private final TouristSheetRepository repository;
     private final TouristSheetMapper mapper;
-
-    public TouristSheetServiceImpl(TouristSheetRepository repository, TouristSheetMapper mapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
 
     @Query("from TouristSheet ")
     @Override
