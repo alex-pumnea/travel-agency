@@ -1,107 +1,109 @@
-### Find All Tourist Sheets
+### Get All TouristSheets
 GET http://localhost:8080/api/v1/tourist-sheets
 
-### Get Tourist Sheet by ID
+### Get TouristSheet by ID
 GET http://localhost:8080/api/v1/tourist-sheets/1
 
-### Create new Tourist Sheet
+### Get TouristSheet by non existing Id
+GET http://localhost:8080/api/v1/customers/101
+
+### Create new valid TouristSheet
 POST http://localhost:8080/api/v1/tourist-sheets
 Content-Type: application/json
 
 {
+  "travelStartDate": "2023-08-01",
+  "travelEndDate": "2023-08-15",
+  "flightDetails": "Flight ABC123",
+  "tourPlan": [
+    "Place 1",
+    "Place 2",
+    "Place 3"
+  ],
   "customer": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "johndoe@example.com",
-    "phone": "123456789",
-    "nationality": "USA"
-  },
-  "address": {
-    "street": "123 Main St",
-    "city": "New York",
-    "postalCode": "12345",
-    "country": "United States",
-    "countryCode": "US"
-  },
-  "travelInfo": {
-    "travelStartDate": "2023-07-01",
-    "travelEndDate": "2023-07-10",
-    "flightDetails": "ABC123",
-    "itinerary": ["Place 1", "Place 2", "Place 3"]
-  },
-  "emergencyContact": {
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "relationship": "SPOUSE",
-    "phone": "987654321"
+    "id": 1
   }
 }
 
-### Update existing Tourist Sheets
+
+### Create another new valid TouristSheet
+POST http://localhost:8080/api/v1/tourist-sheets
+Content-Type: application/json
+
+{
+  "travelStartDate": "2023-08-15",
+  "travelEndDate": "2023-08-25",
+  "flightDetails": "Flight XYZ789",
+  "tourPlan": [
+    "Place A",
+    "Place B",
+    "Place C",
+    "Place D"
+  ],
+  "customer": {
+    "id": 2
+  }
+}
+
+### Create new invalid TouristSheet
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "travelStartDate": "2021-08-15",
+  "travelEndDate": "2021-08-25",
+  "flightDetails": "",
+  "tourPlan": [
+  ],
+  "customer": {
+    "id": 0
+  }
+}
+
+
+### Update existing Tourist Sheets with existing id
 PUT http://localhost:8080/api/v1/tourist-sheets/1
 Content-Type: application/json
 
 {
+  "travelStartDate": "2023-09-15",
+  "travelEndDate": "2023-09-25",
+  "flightDetails": "NEW Flight XYZ789",
+  "tourPlan": [
+    "NEW Place A",
+    "NEW Place B",
+    "NEW Place C",
+    "NEW Place D"
+  ],
   "customer": {
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "email": "janedoe@example.com",
-    "phone": "123456789",
-    "nationality": "USA"
-  },
-  "address": {
-    "street": "123 Main St",
-    "city": "New York",
-    "postalCode": "12345",
-    "country": "United States",
-    "countryCode": "US"
-  },
-  "travelInfo": {
-    "travelStartDate": "2023-07-01",
-    "travelEndDate": "2023-07-10",
-    "flightDetails": "ABC123",
-    "itinerary": ["Place 1", "Place 2", "Place 3"]
-  },
-  "emergencyContact": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "relationship": "SPOUSE",
-    "phone": "987654321"
+    "id": 2
   }
 }
 
-### Update existing Tourist Sheet with invalid id
+### Update existing TouristSheet with non existing id
 PUT http://localhost:8080/api/v1/tourist-sheets/100
 Content-Type: application/json
 
 {
+  "travelStartDate": "2023-09-15",
+  "travelEndDate": "2023-09-25",
+  "flightDetails": "NEW Flight XYZ789",
+  "tourPlan": [
+    "NEW Place A",
+    "NEW Place B",
+    "NEW Place C",
+    "NEW Place D"
+  ],
   "customer": {
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "email": "janedoe@example.com",
-    "phone": "123456789",
-    "nationality": "USA"
-  },
-  "address": {
-    "street": "123 Main St",
-    "city": "New York",
-    "postalCode": "12345",
-    "country": "United States",
-    "countryCode": "US"
-  },
-  "travelInfo": {
-    "travelStartDate": "2023-07-01",
-    "travelEndDate": "2023-07-10",
-    "flightDetails": "ABC123",
-    "itinerary": ["Place 1", "Place 2", "Place 3"]
-  },
-  "emergencyContact": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "relationship": "SPOUSE",
-    "phone": "987654321"
+    "id": 200
   }
 }
 
-### Delete Tourist Sheet by id
-DELETE http://localhost:8080/api/v1/tourist-sheets/3
+### Delete TouristSheet by existing id
+DELETE http://localhost:8080/api/v1/tourist-sheets/1
+
+### Delete TouristSheet by non existing id
+DELETE http://localhost:8080/api/v1/tourist-sheets/100
+
+### Delete All TouristSheets
+DELETE http://localhost:8080/api/v1/tourist-sheets
