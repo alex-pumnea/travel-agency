@@ -6,11 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 /**
- * Represents a Customer entity.
+ * This class represents an Emergency Contact entity with associated information relationship enum.
+ * It extends the Person class to inherit common properties first name, last name, email and phone.
  *
  * @author Alex Pumnea
  */
@@ -19,30 +18,17 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "emergency_contacts")
-public class EmergencyContact {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Table(name = "emergency_contacts", uniqueConstraints = {
+        @UniqueConstraint(name = "uc_emergency_contact",
+                columnNames = {"first_name", "last_name", "email", "phone", "relationship"})
+})
+public class EmergencyContact extends Person {
 
-    @NotBlank(message = "First name is required")
-    @Size(max = 100, message = "First name must be less than or equal to 100 characters")
-    @Column(name = "first_name")
-    private String firstName;
-
-    @NotBlank(message = "Last name is required")
-    @Size(max = 100, message = "Last name must be less than or equal to 100 characters")
-    @Column(name = "last_name")
-    private String lastName;
+    /**
+     * Enumeration of available relationships for Emergency Contact in relation to Customer.
+     */
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "relationship")
+    @Column(name = "relationship", nullable = false)
     private Relationship relationship;
-
-    @NotBlank(message = "Phone is required")
-    @Size(max = 20, message = "Phone must be less than or equal to 20 characters")
-    @Column(name = "phone")
-    private String phone;
-
 }

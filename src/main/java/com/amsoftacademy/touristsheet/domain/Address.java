@@ -7,10 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * Represents an address entity.
+ * This class represents an Address entity with associated information such as street,
+ * city, postal code, country and country code.
  *
  * @author Alex Pumnea
  */
@@ -19,7 +21,10 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "addresses")
+@Table(name = "addresses", uniqueConstraints = {
+        @UniqueConstraint(name = "uc_address_street_city",
+                columnNames = {"street", "city", "country"})
+})
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,28 +32,28 @@ public class Address {
     private Long id;
 
     @NotBlank(message = "Street is required")
-    @Size(max = 100, message = "Street must be less than or equal to 100 characters")
+    @Size(min = 2, max = 30, message = "Street must be between 2 and 30 characters long")
     @Column(name = "street", nullable = false)
     private String street;
 
     @NotBlank(message = "City is required")
-    @Size(max = 100, message = "City must be less than or equal to 100 characters")
-    @Column(name = "city")
+    @Size(min = 1, max = 30, message = "City must be between 1 and 30 characters long")
+    @Column(name = "city", nullable = false)
     private String city;
 
     @NotBlank(message = "Postal code is required")
-    @Size(max = 100, message = "Postal code must be less than or equal to 100 characters")
-    @Column(name = "postal_code")
+    @Pattern(regexp = "^[A-Za-z0-9]{3,7}$", message = "Invalid postal code")
+    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
     @NotBlank(message = "Country is required")
-    @Size(max = 100, message = "Country must be less than or equal to 100 characters")
-    @Column(name = "country")
+    @Size(min = 1, max = 30, message = "Country must be between 1 and 30 characters long")
+    @Column(name = "country", nullable = false)
     private String country;
 
     @NotBlank(message = "Country code is required")
-    @Size(max = 2, message = "Country code must be less than or equal to 2 characters")
-    @Column(name = "country_code")
+    @Pattern(regexp = "^[A-Za-z]{2,3}$", message = "Country code must consist of 2 or 3 letters")
+    @Column(name = "country_code", nullable = false)
     private String countryCode;
 
 }
