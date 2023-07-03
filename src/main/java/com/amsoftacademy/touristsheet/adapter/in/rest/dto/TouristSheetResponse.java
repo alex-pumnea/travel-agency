@@ -4,6 +4,7 @@ import lombok.Value;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,7 +12,9 @@ import java.util.List;
  * DTO for {@link com.amsoftacademy.touristsheet.domain.TouristSheet}
  */
 @Value
-public class TouristSheetRequest implements Serializable {
+public class TouristSheetResponse implements Serializable {
+
+    Long id;
 
     @NotNull(message = "Travel start date is required")
     @FutureOrPresent(message = "Travel start date must be in the future or present")
@@ -31,4 +34,8 @@ public class TouristSheetRequest implements Serializable {
 
     @NotNull(message = "Customer is required")
     CustomerResponse customer;
+
+    Instant createdAt;
+
+    Instant updatedAt;
 }

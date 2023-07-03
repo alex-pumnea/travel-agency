@@ -11,23 +11,24 @@ import java.io.Serializable;
  */
 @Value
 public class AddressDto implements Serializable {
-    @Size(max = 100, message = "Street must be less than or equal to 100 characters")
+
+    @Size(message = "Street must be less than or equal to 100 characters", max = 100)
     @NotBlank(message = "Street is required")
     String street;
 
-    @Size(max = 100, message = "City must be less than or equal to 100 characters")
+    @Size(message = "City must be less than or equal to 100 characters", max = 100)
     @NotBlank(message = "City is required")
     String city;
 
-    @Size(max = 100, message = "Postal code must be less than or equal to 100 characters")
+    @Size(message = "Postal code must be less than or equal to 100 characters", max = 100)
     @NotBlank(message = "Postal code is required")
     String postalCode;
 
-    @Size(max = 100, message = "Country must be less than or equal to 100 characters")
+    @Size(message = "Country must be less than or equal to 100 characters", max = 100)
     @NotBlank(message = "Country is required")
     String country;
 
-    @Size(max = 2, message = "Country code must be less than or equal to 2 characters")
+    @Size(message = "Country code must be less than or equal to 2 characters", max = 2)
     @NotBlank(message = "Country code is required")
     String countryCode;
 }
