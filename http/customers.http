@@ -1,0 +1,148 @@
+### Get all Customers
+GET http://localhost:8080/api/v1/customers
+
+### Get Customer by existing Id
+GET http://localhost:8080/api/v1/customers/10
+
+### Get Customer by non existing Id
+GET http://localhost:8080/api/v1/customers/101
+
+### Create new valid Customer
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johndoe@example.com",
+  "phone": "123456789",
+  "passportNumber": "AB12345",
+  "emergencyContact": {
+    "firstName": "Kane",
+    "lastName": "Bo",
+    "email": "kanebo@example.com",
+    "phone": "123456789",
+    "relationship": "CHILD"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "City",
+    "postalCode": "12345",
+    "country": "Country",
+    "countryCode": "CC"
+  }
+}
+
+### Create another new valid Customer
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "janesmith@example.com",
+  "phone": "987654321",
+  "passportNumber": "AA12345",
+  "emergencyContact": {
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john_smith@example.com",
+    "phone": "123456789",
+    "relationship": "SPOUSE"
+  },
+  "address": {
+    "street": "456 Elm St",
+    "city": "Toronto",
+    "postalCode": "54321",
+    "country": "Canada",
+    "countryCode": "CA"
+  }
+}
+
+### Create new invalid Customer
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "Doe",
+  "email": "@example.com",
+  "phone": "89",
+  "passportNumber": "A",
+  "emergencyContact": {
+    "firstName": "Kane",
+    "lastName": "Bo",
+    "email": "@example.com",
+    "phone": "123456789"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "City",
+    "postalCode": "12345",
+    "country": "Country",
+    "countryCode": "CC"
+  }
+}
+
+
+
+### Update existing Customer with existing id
+PUT http://localhost:8080/api/v1/customers/12
+Content-Type: application/json
+
+{
+  "firstName": "Josh",
+  "lastName": "Long",
+  "email": "joshlong@example.com",
+  "phone": "987654321",
+  "passportNumber": "QQ12345",
+  "emergencyContact": {
+    "firstName": "Trisha",
+    "lastName": "Gee",
+    "email": "trisha-gee@example.com",
+    "phone": "123456789",
+    "relationship": "OTHER"
+  },
+  "address": {
+    "street": "456 Elm St",
+    "city": "San Francisco",
+    "postalCode": "54321",
+    "country": "USA",
+    "countryCode": "US"
+  }
+}
+
+### Update existing Customer with non existing id
+PUT http://localhost:8080/api/v1/customers/100
+Content-Type: application/json
+
+{
+  "firstName": "Josh",
+  "lastName": "Long",
+  "email": "joshlong@example.com",
+  "phone": "987654321",
+  "passportNumber": "QQ12345",
+  "emergencyContact": {
+    "firstName": "Trisha",
+    "lastName": "Gee",
+    "email": "trisha-gee@example.com",
+    "phone": "123456789",
+    "relationship": "OTHER"
+  },
+  "address": {
+    "street": "456 Elm St",
+    "city": "San Francisco",
+    "postalCode": "54321",
+    "country": "USA",
+    "countryCode": "US"
+  }
+}
+
+### Delete Customer by existing id
+DELETE http://localhost:8080/api/v1/customers/12
+
+### Delete Customer by non existing id
+DELETE http://localhost:8080/api/v1/customers/120
+
+### Delete All Tourist Sheets
+DELETE http://localhost:8080/api/v1/customers
