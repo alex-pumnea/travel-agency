@@ -18,11 +18,11 @@ public class CustomerResponse implements Serializable {
 
     Long id;
 
-    @Size(message = "First name must be less than or equal to 100 characters", max = 100)
+    @Size(min = 2, max = 20, message = "First name must be between 2 and 20 characters long.")
     @NotBlank(message = "First name is required")
     String firstName;
 
-    @Size(message = "Last name must be less than or equal to 100 characters", max = 100)
+    @Size(min = 2, max = 20, message = "First name must be between 2 and 20 characters long.")
     @NotBlank(message = "Last name is required")
     String lastName;
 
@@ -34,7 +34,7 @@ public class CustomerResponse implements Serializable {
     @NotBlank(message = "Phone is required")
     String phone;
 
-    @Size(message = "Passport Number must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Passport Number must be less than or equal to 100 characters")
     @NotBlank(message = "Passport Number is required")
     String passportNumber;
 

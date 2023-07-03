@@ -2,10 +2,7 @@ package com.amsoftacademy.touristsheet.adapter.in.rest.dto;
 
 import lombok.Value;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -14,11 +11,11 @@ import java.io.Serializable;
 @Value
 public class CustomerRequest implements Serializable {
 
-    @Size(message = "First name must be less than or equal to 100 characters", max = 100)
+    @Size(min = 2, max = 20, message = "First name must be between 2 and 20 characters long.")
     @NotBlank(message = "First name is required")
     String firstName;
 
-    @Size(message = "Last name must be less than or equal to 100 characters", max = 100)
+    @Size(min = 2, max = 20, message = "First name must be between 2 and 20 characters long.")
     @NotBlank(message = "Last name is required")
     String lastName;
 
@@ -26,11 +23,11 @@ public class CustomerRequest implements Serializable {
     @NotBlank(message = "Email is required")
     String email;
 
-    @Size(message = "Phone must be less than or equal to 20 characters", max = 20)
+    @Digits(integer = 11, fraction = 0, message = "Phone number should be maximum 11 digits")
     @NotBlank(message = "Phone is required")
     String phone;
 
-    @Size(message = "Passport Number must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Passport Number must be less than or equal to 100 characters")
     @NotBlank(message = "Passport Number is required")
     String passportNumber;
 

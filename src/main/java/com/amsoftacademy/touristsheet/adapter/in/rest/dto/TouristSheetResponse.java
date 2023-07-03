@@ -24,11 +24,11 @@ public class TouristSheetResponse implements Serializable {
     @Future(message = "Travel end date must be in the future")
     LocalDate travelEndDate;
 
-    @Size(message = "Flight details must be less than or equal to 100 characters", max = 100)
+    @Size(max = 100, message = "Flight details must be less than or equal to 100 characters")
     @NotBlank(message = "Flight details is required")
     String flightDetails;
 
-    @Size(message = "Tour plan must contain between 1 and 15 items", min = 1, max = 15)
+    @Size(min = 1, max = 15, message = "Tour plan must contain between 1 and 15 items")
     @NotEmpty(message = "Tour plan must not be empty")
     List<String> tourPlan;
 

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -43,7 +44,7 @@ public abstract class Person {
     private String email;
 
     @NotBlank(message = "Phone is required")
-    @Size(min = 2, max = 20, message = "First name must be between 2 and 11 characters long.")
+    @Digits(integer = 11, fraction = 0, message = "Phone number should be maximum 11 digits")
     @Column(name = "phone")
     private String phone;
 }
