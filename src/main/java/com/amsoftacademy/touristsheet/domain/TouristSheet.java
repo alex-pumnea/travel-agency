@@ -37,6 +37,24 @@ public class TouristSheet {
     private Long id;
 
     /**
+     * The customer associated with the Tourist Sheet.
+     */
+
+    @NotNull(message = "Customer is required")
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    /**
+     * The customer associated with the Tourist Sheet.
+     */
+
+    @NotNull(message = "Destination is required")
+    @Size(max = 50, message = "Destination must be less than or equal to 50 characters")
+    @Column(name = "destination" )
+    private String destination;
+
+    /**
      * The start date of the travel.
      */
 
@@ -75,14 +93,6 @@ public class TouristSheet {
     @Column(name = "item")
     private List<String> tourPlan;
 
-    /**
-     * The customer associated with the Tourist Sheet.
-     */
-
-    @NotNull(message = "Customer is required")
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
 
     /**
      * The timestamp indicating the creation time of the tourist sheet.

@@ -16,6 +16,13 @@ public class TouristSheetResponse implements Serializable {
 
     Long id;
 
+    @NotNull(message = "Customer is required")
+    CustomerResponse customer;
+
+    @NotNull(message = "Destination is required")
+    @Size(message = "Destination must be less than or equal to 50 characters", max = 50)
+    String destination;
+
     @NotNull(message = "Travel start date is required")
     @FutureOrPresent(message = "Travel start date must be in the future or present")
     LocalDate travelStartDate;
@@ -32,10 +39,8 @@ public class TouristSheetResponse implements Serializable {
     @NotEmpty(message = "Tour plan must not be empty")
     List<String> tourPlan;
 
-    @NotNull(message = "Customer is required")
-    CustomerResponse customer;
-
     Instant createdAt;
 
     Instant updatedAt;
+
 }
