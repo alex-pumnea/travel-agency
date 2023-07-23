@@ -59,6 +59,32 @@ Content-Type: application/json
   }
 }
 
+### Create another new valid Customer
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Johnson",
+  "email": "alicejohnson@example.com",
+  "phone": "555123456",
+  "passportNumber": "CC98765",
+  "emergencyContact": {
+    "firstName": "Bob",
+    "lastName": "Johnson",
+    "email": "bob_johnson@example.com",
+    "phone": "123456789",
+    "relationship": "SPOUSE"
+  },
+  "address": {
+    "street": "789 Oak St",
+    "city": "London",
+    "postalCode": "98765",
+    "country": "United Kingdom",
+    "countryCode": "UK"
+  }
+}
+
 ### Create new invalid Customer
 POST http://localhost:8080/api/v1/customers
 Content-Type: application/json
@@ -84,7 +110,31 @@ Content-Type: application/json
   }
 }
 
+### Create new invalid Customer
+POST http://localhost:8080/api/v1/customers
+Content-Type: application/json
 
+{
+  "firstName": "Sarah",
+  "lastName": "Williams",
+  "email": "sarahwilliams@example.com",
+  "phone": "999888777",
+  "passportNumber": "DD12345",
+  "emergencyContact": {
+    "firstName": "Michael",
+    "lastName": "Williams",
+    "email": "michael_williams@example.com",
+    "phone": "888777666",
+    "relationship": "SPOUSE"
+  },
+  "address": {
+    "street": "321 Elm St",
+    "city": "Sydney",
+    "postalCode": "54321",
+    "country": "Australia",
+    "countryCode": "AU"
+  }
+}
 
 ### Update existing Customer with existing id
 PUT http://localhost:8080/api/v1/customers/1
