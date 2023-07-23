@@ -18,6 +18,7 @@ import javax.validation.Valid;
  * @author Alex Pumnea
  */
 @Slf4j
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/tourist-sheets")
