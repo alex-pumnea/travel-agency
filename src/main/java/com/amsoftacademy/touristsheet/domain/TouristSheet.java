@@ -25,7 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "tourist_sheets", uniqueConstraints = {
-        @UniqueConstraint(name = "uc_tourist_sheet_customer_id", columnNames = {"customer_id"})
+        @UniqueConstraint(name = "uc_tourist_sheet_id_customer_id", columnNames = {"id","customer_id"})
 })
 @NamedEntityGraph(name = "TouristSheet.graph", attributeNodes = {
         @NamedAttributeNode("customer"),
@@ -99,7 +99,8 @@ public class TouristSheet {
      */
 
     @CreationTimestamp
-    @Column(name = "created_tm", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_tm", nullable = false, updatable = false,
+            columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Instant createdAt;
 
     /**

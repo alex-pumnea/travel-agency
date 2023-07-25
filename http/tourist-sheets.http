@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
   "customer": {
-    "id": 1
+    "id": 7
   },
   "destination": "Paris",
   "travelStartDate": "2023-08-01",
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 {
   "customer": {
-    "id": 2
+    "id": 6
   },
   "destination": "Moldova",
   "travelStartDate": "2023-08-15",
@@ -64,13 +64,14 @@ Content-Type: application/json
 
 
 ### Update existing Tourist Sheets with existing id
-PUT http://localhost:8080/api/v1/tourist-sheets/1
+PUT http://localhost:8080/api/v1/tourist-sheets/9
 Content-Type: application/json
 
 {
   "travelStartDate": "2023-09-15",
   "travelEndDate": "2023-09-25",
   "flightDetails": "NEW Flight XYZ789",
+  "destination": "New  New Moldova",
   "tourPlan": [
     "NEW Place A",
     "NEW Place B",
@@ -78,7 +79,7 @@ Content-Type: application/json
     "NEW Place D"
   ],
   "customer": {
-    "id": 2
+    "id": 6
   }
 }
 
